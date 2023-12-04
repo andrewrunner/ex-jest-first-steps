@@ -1,6 +1,61 @@
-import { getStringInfo, toUpperCase } from "../app/Utils";
+import StringUtils, { getStringInfo, toUpperCase } from "../lib/StringUtils";
 
 describe('Utils test suite', () => {
+
+
+    describe('StringUtils tests', () => {
+
+        let sut: StringUtils;
+
+        // HOOKS init mocks for all tests of this block =============
+
+        // init all we need for each test in one place
+        beforeEach(() => {
+            sut = new StringUtils();
+        });
+
+        afterEach(() => {
+            // clear all mocks 
+        });
+
+        // TESTS =====================================================
+
+        it('Should return correct upperCase', () => {
+            const actual = sut.toUpperCase('abc');
+            expect(actual).toBe('ABC');
+        })
+
+        it('Should return error on invalid argument - function', () => {
+            function exprecError() {
+                sut.toUpperCase('');
+            }
+
+            expect(exprecError).toThrow();
+            expect(exprecError).toThrow('Argument is empty!');
+        })
+
+        it('Should return error on invalid argument - arrow function', () => {
+            expect(() => {
+                sut.toUpperCase('')
+            }).toThrow('Argument is empty!');
+        })
+
+        it('Should return error on invalid argument - try catch block', (done) => {
+            try {
+                sut.toUpperCase('');
+                done('StringUtils.toUpperCase should throw error for invalid arg'); // если небыло выкинуто исключение 
+            } catch(e) {
+                expect(e).toBeInstanceOf(Error);
+                expect(e).toHaveProperty('message', 'Argument is empty!');
+                done();
+            }
+        });
+
+    })
+
+
+
+
 
     // each test has three common section: arrage, act, assert
     it('shoud return uppercase of valid string', () => {

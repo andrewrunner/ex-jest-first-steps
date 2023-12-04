@@ -1,7 +1,4 @@
 
-export function toUpperCase(arg: string) {
-    return arg.toUpperCase();
-}
 
 export type stringInfo = {
     lowerCase: string,
@@ -19,4 +16,25 @@ export function getStringInfo(arg:string):stringInfo {
         length: arg.length,
         extrInfo: {}
     } 
+}
+
+
+
+
+
+export function toUpperCase(arg: string) {
+    if(!arg) {
+        throw new Error('Argument is empty!')
+    }
+    return arg.toUpperCase();
+}
+
+
+export default class StringUtils {
+    public toUpperCase(arg: string) {
+        if(!arg) {
+            throw new Error('Argument is empty!')
+        }
+        return arg.toUpperCase();
+    }
 }
