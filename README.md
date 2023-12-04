@@ -6,3 +6,6 @@ My experiments with jest test library
 2. Use F.I.R.S.T. principles (Fast, Independent, Repitable, Self-validating, Thorough) 
 
 Jest hooks can help init common mocks for all tests;
+
+Usefull links:
+https://github.com/microsoft/vscode-recipes/tree/main/debugging-jest-tests
