@@ -1,6 +1,6 @@
 
 
-export type stringInfo = {
+export type StringInfo = {
     lowerCase: string,
     upperCase: string,
     characters: string[],
@@ -8,7 +8,7 @@ export type stringInfo = {
     extrInfo: Object|undefined|null
 }
 
-export function getStringInfo(arg:string):stringInfo {
+export function getStringInfo(arg:string):StringInfo {
     return {
         lowerCase: arg.toLowerCase(),
         upperCase: arg.toUpperCase(),
@@ -19,9 +19,6 @@ export function getStringInfo(arg:string):stringInfo {
 }
 
 
-
-
-
 export function toUpperCase(arg: string) {
     if(!arg) {
         throw new Error('Argument is empty!')
@@ -30,11 +27,16 @@ export function toUpperCase(arg: string) {
 }
 
 
-export default class StringUtils {
+export class StringUtils {
     public toUpperCase(arg: string) {
         if(!arg) {
             throw new Error('Argument is empty!')
         }
         return arg.toUpperCase();
     }
+}
+
+
+export function calculateComplexity(stringInfo: StringInfo): number {
+    return Object.keys(stringInfo.extrInfo).length * stringInfo.length;
 }

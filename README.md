@@ -7,10 +7,17 @@ My experiments with Jest test library
 
 Jest hooks can help init common mocks for all tests;
 
+Principles:
+- One class = one test case.
+- One method = one or more tests.
+- One alternative branch (if/switch/try-catch/exception) = one test.
 
-Один класс = один тестовый случай.
-Один метод = один или несколько тестов.
-Одна альтернативная ветка (if/switch/try-catch/exception) = один тест.
+Doubles:
+- Dummy object
+- Fakes
+- Stubs
+- Spiec
+- Mocks 
 
 
 
