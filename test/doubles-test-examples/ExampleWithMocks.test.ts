@@ -3,7 +3,6 @@ import { toUpperCaseWithCb } from "../../src/lib/StringUtils";
 
 describe("Using tests with mocks", () => { 
 
-
     describe("Tracking callbacks", () => {
         
         let cdArgs = [];
@@ -58,7 +57,5 @@ describe("Using tests with mocks", () => {
             expect(callbackMock).toHaveBeenCalledTimes(1);
         });
     });
-
-
 
 });

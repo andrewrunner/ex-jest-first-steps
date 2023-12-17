@@ -1,3 +1,4 @@
+import { v4 } from "uuid";
 
 
 export type StringInfo = {
@@ -27,6 +28,14 @@ export function toUpperCase(arg: string) {
 }
 
 
+export function toLowerCaseWithId(arg: string) {
+    if(!arg) {
+        throw new Error('Argument is empty!')
+    }
+    return arg.toLowerCase() + v4();
+}
+
+
 export class StringUtils {
     public toUpperCase(arg: string) {
         if(!arg) {
@@ -52,4 +61,22 @@ export function toUpperCaseWithCb(str:string, callback:LoggetServiceCallback) {
 
     callback(`Called function with ${str}`);
     return str.toUpperCase();
+}
+
+
+
+export class OtherStringUtils {
+
+
+    private callExternalService() {
+        console.log("Caling external service...")
+    }
+
+    public toUpperCase(arg:string) {
+        return arg.toUpperCase();
+    }
+
+    public logString(arg:string) {
+        console.log(arg);
+    }
 }
