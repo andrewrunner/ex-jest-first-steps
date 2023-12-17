@@ -5,7 +5,7 @@ export type StringInfo = {
     upperCase: string,
     characters: string[],
     length: number,
-    extrInfo: Object|undefined|null
+    extraInfo: Object|undefined|null
 }
 
 export function getStringInfo(arg:string):StringInfo {
@@ -14,7 +14,7 @@ export function getStringInfo(arg:string):StringInfo {
         upperCase: arg.toUpperCase(),
         characters: Array.from(arg),
         length: arg.length,
-        extrInfo: {}
+        extraInfo: {}
     } 
 }
 
@@ -38,5 +38,18 @@ export class StringUtils {
 
 
 export function calculateComplexity(stringInfo: StringInfo): number {
-    return Object.keys(stringInfo.extrInfo).length * stringInfo.length;
+    return Object.keys(stringInfo.extraInfo).length * stringInfo.length;
+}
+
+
+type LoggetServiceCallback = (arg:string) => void;
+
+export function toUpperCaseWithCb(str:string, callback:LoggetServiceCallback) {
+    if(!str) {
+        callback("Invalid string!");
+        return;
+    }
+
+    callback(`Called function with ${str}`);
+    return str.toUpperCase();
 }

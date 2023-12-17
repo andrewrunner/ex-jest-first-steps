@@ -1,6 +1,6 @@
 import { calculateComplexity } from "../../src/lib/StringUtils"
 
-describe("Using stubs tests", () => {
+describe("Using tests with stubs", () => {
 
     it("Calculate complexity", () => {
 
@@ -11,7 +11,7 @@ describe("Using stubs tests", () => {
                 field1: 'Info 1',
                 field2: 'Info 2',
             }
-        }
+        };
 
         const actual = calculateComplexity(someInfo as any);
 

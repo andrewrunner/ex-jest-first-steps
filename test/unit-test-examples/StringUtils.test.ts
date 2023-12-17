@@ -123,12 +123,12 @@ describe('Utils test suite', () => {
         it('return defined extraInfo', () => {
             const actual = getStringInfo('string-text');
 
-            expect(actual.extrInfo).toEqual({}); // primitive - toBe, objects - toEqual
+            expect(actual.extraInfo).toEqual({}); // primitive - toBe, objects - toEqual
 
-            expect(actual.extrInfo).not.toBe(undefined);
-            expect(actual.extrInfo).not.toBeUndefined(); // or
-            expect(actual.extrInfo).toBeDefined(); // or
-            expect(actual.extrInfo).toBeTruthy(); // or
+            expect(actual.extraInfo).not.toBe(undefined);
+            expect(actual.extraInfo).not.toBeUndefined(); // or
+            expect(actual.extraInfo).toBeDefined(); // or
+            expect(actual.extraInfo).toBeTruthy(); // or
         })
 
     })
