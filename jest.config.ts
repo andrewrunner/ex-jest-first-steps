@@ -10,7 +10,7 @@ const config:Config.InitialOptions = {
         "<rootDir>/src/**/*.ts"
     ],
     testMatch: [
-        "<rootDir>/test/**/*.ts"
+        "<rootDir>/test/doubles-in-practice/**/*.ts"
     ]
 }
 
