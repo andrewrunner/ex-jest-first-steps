@@ -33,7 +33,7 @@ describe("RegisterHandler test suite", () => {
     }
     const someId = '1234';
 
-    
+
     beforeEach(() => {
         sut = new RegisterHandler(
             request as IncomingMessage,
@@ -67,6 +67,38 @@ describe("RegisterHandler test suite", () => {
         )
     })
 
+
+    it('Should not register for invalid accounts', async () => {
+
+        request.method = HTTP_METHODS.POST,
+        getRequestBodyMock.mockResolvedValueOnce({});
+
+        await sut.handleRequest();
+
+        expect(respoonseMock.statusCode).toBe(HTTP_CODES.BAD_REQUEST);
+        expect(respoonseMock.writeHead).toHaveBeenCalledWith(
+            HTTP_CODES.BAD_REQUEST,
+            { 'Content-Type': 'application/json' }
+        )
+        expect(respoonseMock.write).toHaveBeenCalledWith(
+           JSON.stringify(
+                'userName and password required'
+           )
+        )
+
+    });
+
+
+    it('Should do nothing for unsupported http method ', async () => {
+
+        request.method = HTTP_METHODS.GET,
+
+        await sut.handleRequest();
+
+        expect(respoonseMock.writeHead).not.toHaveBeenCalled();
+        expect(respoonseMock.write).not.toHaveBeenCalled();
+        expect(getRequestBodyMock).not.toHaveBeenCalled();
+    });
 
 
 });
