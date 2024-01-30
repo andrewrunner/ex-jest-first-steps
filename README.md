@@ -27,6 +27,16 @@ Doubles:
 - Mocks 
 
 
+Heavy mock testing approach
+Advantages:
+- Test classes in isolation
+- Impose a strict coding style  (If class has too many dependencies - it makes it hard to test...)
+- Once tests are in place, it easy to create new tests 
+Disadvantages:
+- Test and implementation are tighly coupled (small change leads to many changes)
+- Hard to write 
+
+
 
 Пирамида тестов Майка Кона состоит из трёх уровней (снизу вверх):
 - Юнит-тесты.
