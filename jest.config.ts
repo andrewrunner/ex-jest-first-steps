@@ -10,11 +10,8 @@ const config:Config.InitialOptions = {
         "<rootDir>/src/**/*.ts" 
     ],
     testMatch: [ 
-        "<rootDir>/test/integration-test/**/*test.ts" 
+        "<rootDir>/test/**/*test.ts" 
     ],
-    setupFiles: [ 
-        "<rootDir>/test/integration-test/utils/config.ts", // load specify config for tests 
-    ], 
 }
 
 export default config;
