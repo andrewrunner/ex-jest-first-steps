@@ -236,9 +236,6 @@ describe("Server integration test", () => {
         // With snapshot: 
         // to update snapshot, run: npm run integration-test -- -u
         expect(reservation).toMatchSnapshot();
-
     })
-
-
 
 })
