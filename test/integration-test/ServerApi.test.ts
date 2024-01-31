@@ -1,3 +1,4 @@
+import * as generated  from '../../src/data/IdGenerator';
 import { Account } from '../../src/model/AuthModel';
 import { Reservation } from '../../src/model/ReservationModel';
 import { HTTP_CODES, HTTP_METHODS } from '../../src/model/ServerModel';
@@ -208,6 +209,35 @@ describe("Server integration test", () => {
     });
 
 
+    it("snapshot demo", async () => {
+
+        jest.spyOn(generated, 'generateRandomId').mockReturnValueOnce('4321')
+
+        await fetch('http://localhost:8080/reservation', {
+            method: HTTP_METHODS.POST,
+            body: JSON.stringify(someReservation),
+            headers: {
+                authorization: token
+            }
+        })
+
+        const response = await fetch(`http://localhost:8080/reservation/4321`, {
+            method: HTTP_METHODS.GET,
+            headers: {
+                authorization: token
+            }
+        })
+
+        const reservation: Reservation = await response.json();
+
+        // vithout snapshot:
+        // expect(reservation.id).toBe...
+
+        // With snapshot: 
+        // to update snapshot, run: npm run integration-test -- -u
+        expect(reservation).toMatchSnapshot();
+
+    })
 
 
 
