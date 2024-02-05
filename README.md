@@ -38,12 +38,10 @@ Disadvantages:
 
 
 
-Пирамида тестов Майка Кона состоит из трёх уровней (снизу вверх):
-- Юнит-тесты.
-- Сервисные тесты.
-- Тесты пользовательского интерфейса.
-Из этой пирамиды главное запомнить два принципа:
+Mike Cohn's pyramid tests consist of three levels (from bottom to top):
+- Unit tests.
+- Service tests.
+- User interface tests.
+In this pyramid, the main rule consists of two principles:
 
-Писать тесты разной детализации.
-Чем выше уровень, тем меньше тестов.
-
+The higher the level, the fewer tests.
